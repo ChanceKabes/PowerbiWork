@@ -1,0 +1,25 @@
+#code used to generate Correlogram in Powerbi using python code
+
+# The following code to create a dataframe and remove duplicated rows is always executed and acts as a preamble for your script: 
+
+# dataset = pandas.DataFrame(mpg, qsec, vs, wt, hp, fast, gear, disp, drat, cyl)
+# dataset = dataset.drop_duplicates()
+
+# Paste or type your script code here:
+# Plot
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = dataset
+df1= df[["mpg","cyl","disp","hp","drat","wt","qsec","vs","am","gear","carb","fast"]]
+df=df1[["mpg","cyl","disp","hp","drat","wt","qsec","vs","am","gear","carb","fast"]]
+plt.figure(figsize=(12,10), dpi= 80)
+sns.heatmap(df.corr(), xticklabels=df.corr().columns, yticklabels=df.corr().columns, cmap='RdYlGn', center=0, annot=True)
+
+# Decorations
+plt.title('Correlogram of mtcars', fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.show()
