@@ -1,0 +1,5 @@
+#use this code to connect data using python the data source will be named DF
+
+import pandas as pd
+df = pd.read_csv("https://github.com/selva86/datasets/raw/master/mtcars.csv")
+print(df)
