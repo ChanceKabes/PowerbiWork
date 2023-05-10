@@ -1,0 +1,24 @@
+# Code used to generate joint plot in powerbi using custom python visuals
+#The following code to create a dataframe and remove duplicated rows is always executed and acts as a preamble for your script: 
+
+# dataset = pandas.DataFrame(Rank, 2022_Population)
+# dataset = dataset.drop_duplicates()
+
+# Paste or type your script code here:
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = dataset 
+df=df[['Rank','2022_Population']]
+
+sns.set_theme(style="ticks")
+
+rs = np.random.RandomState(11)
+x = rs.gamma(2, size=1000)
+y = -.5 * x + rs.normal(size=1000)
+
+sns.jointplot(data=df, y="Rank", x="2022_Population", kind="hex", color="#4CB391")
+plt.show()
